@@ -15,7 +15,6 @@ login.addEventListener("click", (() => {
             localStorage.setItem('userId', dbUsers[index].id);
             isAuth = true;
             location.href = 'index.html'
-            location.reload();
             break;
         }
     }
