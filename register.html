@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Registro de usuários</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Criar Conta</h1>
+            <div class="input-field">
+                <input type="text" id="name" placeholder="Nome de usuário">
+            </div>
+            <div class="input-field">
+                <input type="email" id="email" placeholder="E-mail de usuário">
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" placeholder="Digite sua senha">
+            </div>
+            <div class="input-field">
+                <button id="register">Enviar</button>
+            </div>
+            <p>Já possui conta? <a href="login.html"> Login</a></p>
+        </div>
+    </div>
+    <script src="js/middleware/isAuth.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

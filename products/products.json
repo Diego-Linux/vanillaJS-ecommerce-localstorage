@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Calça Azul",
+        "price": "60.00",
+        "imageURL": "../img/bluepants.jpg",
+        "category": "pants"
+    },
+    {
+        "name": "Camiseta Branca",
+        "price": "40.00",
+        "imageURL": "../img/whiteshirt.jpg",
+        "category": "shirt"
+    },
+    {
+        "name": "Tênis Preto",
+        "price": "150.00",
+        "imageURL": "../img/blackshoes.jpg",
+        "category": "jacket"
+    },
+    {
+        "name": "Jaqueta Preta",
+        "price": "180.00",
+        "imageURL": "../img/blackjacket.jpg",
+        "category": "jacket"
+    },
+    {
+        "name": "Calça Pijama Rosa",
+        "price": "20.00",
+        "imageURL": "../img/pinkpajama.jpeg",
+        "category": "pants"
+    },
+    {
+        "name": "Tênis Branco",
+        "price": "100.00",
+        "imageURL": "../img/whiteshoes.jpg",
+        "category": "shoes"
+    },
+    {
+        "name": "Calça Preta",
+        "price": "45.00",
+        "imageURL": "../img/blackpants.jpg",
+        "category": "pants"
+    },
+    {
+        "name": "Camiseta Preta",
+        "price": "20.00",
+        "imageURL": "../img/blackshirt.jpg",
+        "category": "shirt"
+    },
+    {
+        "name": "Jaqueta Feminina Azul",
+        "price": "150.00",
+        "imageURL": "../img/bluejacket.jpg",
+        "category": "jacket"
+    },
+    {
+        "name": "Calça Pijama Cinza",
+        "price": "18.00",
+        "imageURL": "../img/greypajama.jpg",
+        "category": "pants"
+    },
+    {
+        "name": "Camiseta Social Azul",
+        "price": "80.00",
+        "imageURL": "../img/blueshirt.jpg",
+        "category": "shirt"
+    },
+    {
+        "name": "Casaco Azul",
+        "price": "90.00",
+        "imageURL": "../img/bluecoat.jpg",
+        "category": "coat"
+    }
+]
