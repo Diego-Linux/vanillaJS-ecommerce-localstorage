@@ -4,9 +4,9 @@ getProductStorage = () => JSON.parse(localStorage.getItem('db_products')) ?? []
 setProductStorage = (dbProducts) => localStorage.setItem('db_products', JSON.stringify(dbProducts))
 
 
-API = async (URL) => {
+API = async (productsURL) => {
     try {
-        const response = await fetch(URL);
+        const response = await fetch(productsURL);
         const data = await response.json();
         setProductStorage(data);
     } catch (err) {
@@ -29,17 +29,18 @@ fetchProducts = () => {
                     <img src="${product.imageURL}" alt="">
                 </div>
                 <h3>${product.name}</h3>
-                <p>${product.price}</p>
+                <p>R$ ${product.price}</p>
                 <button onclick="addToCart('${product.name}')">Adicionar ao Carrinho</button>
             </div>`
     }
 }
 
-renderCart = () => {
+fetchCart = () => {
     let userId = localStorage.getItem('userId')
     let totalItems = 0;
-    let checkCart = 'userCart-' + userId;
-    if (checkCart.length < 1) {
+    let userCart = 'userCart-' + userId;
+    let cart = JSON.parse(localStorage.getItem(userCart || "[]"));
+    if (cart.length < 1) {
         document.getElementById('btn-clean').style.display = 'none';
         document.getElementById('h1-void').style.display = 'block';
         document.getElementById('div-total').style.display = 'none';
@@ -48,7 +49,7 @@ renderCart = () => {
         let cartContainer = document.getElementById('cart-flex');
         cartContainer.innerHTML = "";
         let products = getProductStorage();
-        let cartProducts = JSON.parse(localStorage.getItem(checkCart || "[]"));;
+        let cartProducts = JSON.parse(localStorage.getItem(userCart || "[]"));;
         let cartArr = cartProducts.map(item => {
             for (index of products) {
                 if (index.name === item.name) {
@@ -110,7 +111,7 @@ removeFromCart = (index) => {
         let cart = JSON.parse(localStorage.getItem(userCart || "[]"));
         cart.splice(index, 1);
         localStorage.setItem(userCart, JSON.stringify(cart));
-        renderCart();
+        fetchCart();
     } else {
         null
     }
@@ -122,7 +123,7 @@ countOneMore = (index) => {
     let cart = JSON.parse(localStorage.getItem(userCart || "[]"));
     cart[index].count++;
     localStorage.setItem(userCart, JSON.stringify(cart));
-    renderCart();
+    fetchCart();
 }
 
 countOneSub = (index) => {
@@ -133,14 +134,14 @@ countOneSub = (index) => {
         if (confirm('Impossível diminuir, deseja remover o item do carrinho?')) {
             cart.splice(index, 1);
             localStorage.setItem(userCart, JSON.stringify(cart));
-            renderCart();
+            fetchCart();
         } else {
             null
         }
     } else {
         cart[index].count--;
         localStorage.setItem(userCart, JSON.stringify(cart));
-        renderCart();
+        fetchCart();
     }
 }
 
@@ -150,7 +151,7 @@ cleanCart = () => {
         let userCart = 'userCart-' + userId;
         let cart = [];
         localStorage.setItem(userCart, JSON.stringify(cart));
-        renderCart();
+        location.reload();
     } else {
         null
     }
